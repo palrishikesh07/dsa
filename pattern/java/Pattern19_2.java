@@ -1,29 +1,30 @@
 import java.util.Scanner;
 
-public class Pattern7 {
+public class Pattern19_2 {
 
     public void printPattern(int N) {
         for (int i = 0; i < N; i++) {
-            // Space
-            for (int j = 0; j < N - i - 1; j++) {
-                System.out.print(" ");
-            }
+
             // Start
-            for (int j = 0; j < (2 * i + 1); j++) {
+            for(int j=0;j<=i; j++){
                 System.out.print("*");
             }
             // Space
-            for (int j = 0; j < N - i - 1; j++) {
+             for(int j=0;j< 2*N - (2*i+2); j++){
                 System.out.print(" ");
             }
+             // Start
+            for(int j=0;j<= i; j++){
+                System.out.print("*");
+            }
+            
             System.out.println("");
         }
-      
 
     }
 
     public static void main(String[] args) {
-        Pattern7 pattern = new Pattern7();
+        Pattern19_2 pattern = new Pattern19_2();
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         pattern.printPattern(N);
