@@ -13,4 +13,4 @@ function removeMatchingPattern(dir, pattern) {
 }
 
 // Usage: Remove all .class files
-removeMatchingPattern('./pattern', /\.class$/);   
+removeMatchingPattern('./', /\.class$/);   
