@@ -1,3 +1,5 @@
+//https://leetcode.com/problems/check-if-the-sentence-is-pangram/description/
+
 public class Pamgram {
     public static void main(String[] args) {
         String sentence = "thequickbrownfoxjumpsoverthelazydog";
@@ -11,14 +13,6 @@ public class Pamgram {
         if(ch.length != 26){
             return false;
         }
-        // for(int i=0; i < alphabet.length(); i++){
-        //     if(!alphabet.contains(String.valueOf(ch))){
-        //         return false;
-        //     }
-            // if(!sentence.contains(String.valueOf(alphabet.charAt(i)))){
-            //     return false;
-            // }
-        // }
         boolean[] seen = new boolean[26];
         for(int i=0; i <=25; i++){
             if(Character.isLetter(ch[i])){
