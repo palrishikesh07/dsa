@@ -1,8 +1,9 @@
+import java.util.Set;
 
 public class Vowel {
     public static void main(String[] args) {
         String str = "OpenAI1234@!";
-        checkValidVowel(str);
+        checkValidVowelOptimized(str);
     }
     public static void checkValidVowel(String str){
         String vowel = new String("aeiouAEIOS");
@@ -36,7 +37,7 @@ public class Vowel {
     }
 
 
-    public static void checkValidVowel(String str) {
+    public static void checkValidVowelOptimized(String str) {
 
     Set<Character> vowels = Set.of(
             'a', 'e', 'i', 'o', 'u',
