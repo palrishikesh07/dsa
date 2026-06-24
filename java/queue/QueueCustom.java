@@ -41,6 +41,7 @@ class Queue {
 
     public boolean isEmpty() {
         return front > rear;
+        return size() == 0;
     }
 
     public boolean isFull() {
@@ -76,3 +77,66 @@ public class QueueCustom {
         queue.display();
     }
 }
+
+
+public class ArrayQueue {
+    
+    private final int arr[];
+    private int front;
+    private int rear;
+    private int size;
+    
+    public ArrayQueue(int capacity) {
+        arr = new int[capacity];
+        front = 0;
+        rear = -1;
+        size = 0;
+    }
+    
+    public void enqueue(int value) {
+        
+        if(size == arr.length) {
+            throw new RuntimeException("Queue Overflow!");
+        }
+        
+        rear++;
+        
+        arr[rear] = value;
+        
+        size++;
+    }
+    
+    public int dequeue() {
+        
+        if(isEmpty()) {
+            throw new RuntimeException("Queue Underflow!");
+        }
+        
+        int value = arr[front];
+        
+        front++;
+        
+        size--;
+        
+        return value;
+    }
+    
+    public int front() {
+        
+        if(isEmpty()) {
+            throw new RuntimeException("Queue is empty!");
+        }
+        
+        return arr[front];
+    }
+    
+    public int size() {
+        return size;
+    }
+    
+    public boolean isEmpty() {
+        return size == 0;
+    }
+}
+
+
