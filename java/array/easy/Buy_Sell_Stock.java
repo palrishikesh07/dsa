@@ -26,17 +26,47 @@ public class Buy_Sell_Stock {
         return maxProfit;
     }
 
-    public static int maxProfit(int[] prices) {
-        int minPrice = prices[0];
-        int maxProfit = 0;
-        int n = prices.length;
+    // public static int maxProfit(int[] prices) {
+    //     int minPrice = prices[0];
+    //     int maxProfit = 0;
+    //     int n = prices.length;
 
-        for(int i=1;i<n; i++){
-            int profit = prices[i] - minPrice;
-            minPrice = Math.min(minPrice, prices[i]);
-            maxProfit = Math.max(maxProfit, profit);
-        }
+    //     for(int i=1;i<n; i++){
 
-        return maxProfit;
+    //         int profit = prices[i] - minPrice;
+    //         minPrice = Math.min(minPrice, prices[i]);
+    //         maxProfit = Math.max(maxProfit, profit);
+    //     }
+
+    //     return maxProfit;
+    // }
+
+
+
+
+
+
+//int[] prices = {7,1,5,3,6,4};
+ public static int maxProfit(int[] prices) {
+
+    int n= prices.length;
+    int minPrice = prices[0];
+    int maxProfit = 0;
+    for(int i=1; i< n; i++){
+        int profit = prices[i] - minPrice;
+        maxProfit = Math.max(maxProfit, profit);
+        minPrice = Math.min(minPrice, prices[i]);
     }
+    return maxProfit;
+       
+}
+
+
+
+
+
+
+
+
+
 }

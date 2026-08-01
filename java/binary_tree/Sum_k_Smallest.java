@@ -40,7 +40,7 @@ class Solution {
 
 
 
-class Solution {
+class SolutionMorrisTraversal {
 
     public int sum(Node root, int k) {
 

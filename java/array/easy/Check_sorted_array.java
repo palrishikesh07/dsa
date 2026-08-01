@@ -13,6 +13,7 @@ public class Check_sorted_array {
 
     }
 
+    
     public static boolean isSorted(int[] arr) {
         int length = arr.length;
         for (int i = 0; i < length - 1; i++) {
