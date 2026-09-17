@@ -1,3 +1,105 @@
+# Java / JVM
 *.class
 /*.class
-/node_module
+*.jar
+*.war
+*.ear
+*.jmod
+hs_err_pid*
+
+# TypeScript / Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+dist/
+build/
+out/
+coverage/
+.cache/
+.eslintcache
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.venv/
+venv/
+env/
+ENV/
+.python-version
+pip-wheel-metadata/
+
+# Rust
+target/
+Cargo.lock
+*.rlib
+*.rmeta
+*.d
+*.so
+*.dll
+*.dylib
+
+# Go
+/bin/
+pkg/
+*.exe
+*.exe~
+*.test
+*.out
+
+# C / C++
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.out
+*.exe
+*.app
+*.bin
+
+# .NET
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.ilk
+*.aps
+*.nupkg
+
+# Common binary / executable files
+*.exe
+*.dll
+*.so
+*.dylib
+*.app
+*.apk
+*.ipa
+*.wasm
+*.bin
+*.dat
+*.db
+*.sqlite3
+*.class
+
+# OS files
+.DS_Store
+Thumbs.db
