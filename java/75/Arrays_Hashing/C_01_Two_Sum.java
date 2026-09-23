@@ -1,9 +1,10 @@
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 //HashMap
 
-public class One_Two_Sum {
+public class C_01_Two_Sum {
 
     public static void main(String[] args) {
 
@@ -44,7 +45,7 @@ class BruteForceApproach {
 class HashMapApproach {
     public int[] twoSum(int[] nums, int target) {
         int n = nums.length;
-        HashMap<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < n; i++) {
             int compliment = target - nums[i];
 

@@ -3,7 +3,7 @@
 
 import java.util.HashSet;
 
-public class Two_Contains_Duplicate {
+public class C_02_Contains_Duplicate {
 
     public static void main(String[] args) {
 

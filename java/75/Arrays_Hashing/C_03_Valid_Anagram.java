@@ -3,7 +3,7 @@
 
 import java.util.Arrays;
 
-public class Three_Valid_Anagram {
+public class C_03_Valid_Anagram {
 
     public static void main(String[] args) {
     

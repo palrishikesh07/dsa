@@ -4,18 +4,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Arrays;
 
-public class Four_Group_Anagrams {
+public class C_04_Group_Anagrams {
     
     public static void main(String[] args) {
         String[] strs = {"eat","tea","tan","ate","nat","bat"};
 
-        // BruteForceApproach bruteForceApproach = new BruteForceApproach();
-        // List<List<String>> result = bruteForceApproach.groupAnagrams(strs);
-        // System.out.println(result);
-
-        HashMapApproach hashMapApproach = new HashMapApproach();
-        List<List<String>> result = hashMapApproach.groupAnagrams(strs);
+        BruteForceApproach bruteForceApproach = new BruteForceApproach();
+        List<List<String>> result = bruteForceApproach.groupAnagrams(strs);
         System.out.println(result);
+
+        // HashMapApproach hashMapApproach = new HashMapApproach();
+        // List<List<String>> result = hashMapApproach.groupAnagrams(strs);
+        // System.out.println(result);
     }
 
     
@@ -43,9 +43,10 @@ class BruteForceApproach{
             }
 
             System.out.println("Key for string \"" + str + "\": " + sb.toString());
-            String key = sb.toString(); // Convert the StringBuilder to a String to use as a key in the map
+            String key = sb.toString(); // Convert the StringBuilder to a String to use as a key in the map, east or tea will have same key from alphabet wiese
+            
             System.out.println("key: " + key);
-            System.out.println("Current map: " + map);
+            // System.out.println("Current map: " + map);
             if(!map.containsKey(key)){
                 map.put(key, new ArrayList<>()); // Create a new list for this key if it doesn't exist
             }
