@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 
 public class Five_Top_K_Frequent_Elements {
     public static void main(String[] args) {
@@ -15,8 +16,12 @@ public class Five_Top_K_Frequent_Elements {
         // int[] result = bruteForceApproach.topKFrequent(nums, k);
 
 
-        BucketSortApproach bucketSortApproach = new BucketSortApproach();
-        int[] result = bucketSortApproach.topKFrequent(nums, k);
+        // BucketSortApproach bucketSortApproach = new BucketSortApproach();
+        // int[] result = bucketSortApproach.topKFrequent(nums, k);
+
+
+        MinHeapApproach minHeapApproach = new MinHeapApproach();
+        int[] result = minHeapApproach.topKFrequent(nums, k);
 
         System.out.println("Top " + k + " frequent elements: ");
         for(int i = 0; i < k; i++){
@@ -92,6 +97,50 @@ class BucketSortApproach{
             }
 
         }
+
+        return result;
+    }
+}
+
+
+class Pair{
+    int freq;
+    int num;
+
+    Pair(int freq, int num){
+        this.freq = freq;
+        this.num = num;
+    }
+}
+
+class MinHeapApproach{
+
+    public  int[] topKFrequent(int[] nums, int k){
+
+        Map<Integer,Integer> freqmap = new HashMap<>();
+
+        for(int num: nums){
+            freqmap.put(num, freqmap.getOrDefault(num, 0)+1);
+        }
+        System.out.println(freqmap);
+
+        PriorityQueue<Pair> minHeap = new PriorityQueue<>((a,b)->a.freq - b.freq); // Min heap
+
+        for(Map.Entry<Integer,Integer> entry: freqmap.entrySet()){
+            minHeap.add(new Pair(entry.getValue(),entry.getKey()));
+
+            if (minHeap.size() > k) {
+                minHeap.poll();
+            }
+        }
+
+        // List<Integer> result = new ArrayList<>();
+        int[] result = new int[k];
+
+        while (!minHeap.isEmpty()) {
+            result[minHeap.size() - 1] = minHeap.poll().num; // Fill the result array in reverse order
+        }
+
 
         return result;
     }
