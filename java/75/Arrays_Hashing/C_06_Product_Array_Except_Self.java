@@ -3,7 +3,7 @@
 
 import java.util.Arrays;
 
-public class Six_Product_Array_Except_Self {
+public class C_06_Product_Array_Except_Self {
     public static void main(String[] args) {
         int nums[] = {1,2,3,4};
         // BruteForceApproach bruteForceApproach = new BruteForceApproach();
