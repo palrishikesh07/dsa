@@ -1,9 +1,15 @@
 //HashSet
+//https://leetcode.com/problems/longest-consecutive-sequence/description/
+/*
+Input: nums = [100,4,200,1,3,2]
+Output: 4
+
+*/
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Eight_Longest_Consecutive_Sequence {
+public class C_08_Longest_Consecutive_Sequence {
     public static void main(String[] args) {
         int[] nums = { 100, 4, 200, 1, 3, 2, 5 };
         int[] nums1 = { 0, 3, 7, 2, 5, 8, 4, 6, 0, 1 };
@@ -67,6 +73,7 @@ class HashSetSolution {
         int longest = 0;
         // Iterate through the set and check if the current number is the start of a sequence
         for (int num : set) {
+            //"Only start counting if the previous number does NOT exist."
             if (!set.contains(num-1)) { // If the set does not contain the previous number, then this is the start of a sequence    
                 int currentNum = num;
                 int length = 1;

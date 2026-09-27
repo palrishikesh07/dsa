@@ -1,6 +1,6 @@
 
 //Two Pointers
-public class Ten_Valid_Palindrome {
+public class C_10_Valid_Palindrome {
     public static void main(String[] args) {
 
         String s = "A man, a plan, a canal: Panama";

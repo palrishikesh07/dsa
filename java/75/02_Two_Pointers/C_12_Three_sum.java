@@ -3,19 +3,21 @@
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Twelve_Three_sum {
+public class C_12_Three_sum {
     public static void main(String[] args) {
 
         int[] nums = { -1, 0, 1, 2, -1, -4 };
         // BruteForceSolution bruteForceSolution = new BruteForceSolution();
         // List<List<Integer>> result = bruteForceSolution.threeSum(nums);
+        // System.out.println("Brute force: "+result);
 
         SortingTwoPointerSolution sortingTwoPointerSolution = new SortingTwoPointerSolution();
-        List<List<Integer>>  result = sortingTwoPointerSolution.threeSum(nums);
+        List<List<Integer>> result = sortingTwoPointerSolution.threeSumTest(nums);
         System.out.println("Triplets: " + result);
 
     }
@@ -48,41 +50,63 @@ class BruteForceSolution {
 
 class SortingTwoPointerSolution {
     public List<List<Integer>> threeSum(int[] nums) {
-       
+        // int[] nums = { -1, 0, 1, 2, -1, -4 };
         Set<List<Integer>> result = new HashSet<>();
         int n = nums.length;
 
         // Step 1: Sort the array
         Arrays.sort(nums);
-    
-        
+
         // Step 2: Fix first number
 
-        for(int i=0; i<n-2; i++){
+        for (int i = 0; i < n - 2; i++) {
 
             // Find other two elements
-            int left = i+1;
-            int right = n-1;
+            int left = i + 1;
+            int right = n - 1;
 
-
-            while (left  <right) {
+            while (left < right) {
                 int sum = nums[i] + nums[left] + nums[right];
 
-                if(sum ==0 ){
-                    result.add(Arrays.asList(nums[i],nums[left],nums[right]));
+                if (sum == 0) {
+                    result.add(Arrays.asList(nums[i], nums[left], nums[right]));
                     left++;
                     right--;
-                }
-                else if(sum < 0){
+                } else if (sum < 0) {
                     left++;
-                }
-                else{
+                } else {
                     right--;
                 }
             }
         }
 
-    
+        return new ArrayList<>(result);
+
+    }
+
+    public List<List<Integer>> threeSumTest(int[] nums) {
+        int n = nums.length;
+        Set<List<Integer>> result = new HashSet<>();
+        Arrays.sort(nums);
+
+        for (int i = 0; i < n - 2; i++) {
+
+            int left = i+1;
+            int right = n - 1;
+
+            while (left < right) {
+                int sum = nums[i] + nums[left] + nums[right];
+                if (sum == 0) {
+                    result.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    left++;
+                    right--;
+                } else if (sum < 0) {
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+        }
         return new ArrayList<>(result);
 
     }

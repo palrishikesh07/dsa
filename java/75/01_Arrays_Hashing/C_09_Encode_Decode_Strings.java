@@ -3,7 +3,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Nine_Encode_Decode_Strings {
+public class C_09_Encode_Decode_Strings {
     public static void main(String[] args) {
 
         List<String> strs = new ArrayList<>();

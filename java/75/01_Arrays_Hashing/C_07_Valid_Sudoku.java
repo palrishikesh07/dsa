@@ -1,10 +1,11 @@
 //HashSet
+//https://leetcode.com/problems/valid-sudoku/description/
 // https://www.youtube.com/watch?v=dGZjzA9zLW8
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Seven_Valid_Sudoku {
+public class C_07_Valid_Sudoku {
     public static void main(String[] args) {
         char[][] board = {
                 { '5', '3', '.', '.', '7', '.', '.', '.', '.' },
@@ -30,13 +31,13 @@ public class Seven_Valid_Sudoku {
                 { '.', '.', '.', '.', '8', '.', '.', '7', '9' }
         };
 
-        // SetApproach setApproach = new SetApproach();
-        // System.out.println(setApproach.isValidSudoku(board));
+        SetApproach setApproach = new SetApproach();
+        System.out.println(setApproach.isValidSudoku(board));
         // System.out.println(setApproach.isValidSudoku(board1));
 
-        Solution solution = new Solution();
-        System.out.println(solution.isValidSudoku(board));
-        System.out.println(solution.isValidSudoku(board1));
+        // Solution solution = new Solution();
+        // System.out.println(solution.isValidSudoku(board));
+        // System.out.println(solution.isValidSudoku(board1));
 
     }
 }
@@ -69,9 +70,7 @@ class SetApproach {
 
                 int boxIndex = (r / 3) * 3 + (c / 3);
                 // Check if the value is already in the current row, column, or box
-                if (!rows[r].add(value)
-                        || !cols[c].add(value)
-                        || !boxes[boxIndex].add(value)) {
+                if (!rows[r].add(value) || !cols[c].add(value) || !boxes[boxIndex].add(value)) {
 
                     return false;
                 }
