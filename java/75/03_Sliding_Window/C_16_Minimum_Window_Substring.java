@@ -1,3 +1,5 @@
+//https://leetcode.com/problems/minimum-window-substring/description/
+// https://www.youtube.com/watch?v=SdeaOYoPhIs
 /*
 Given:
 s = "ADOBECODEBANC"
@@ -8,13 +10,63 @@ Find the smallest substring of s that contains A, B and C.
 
 import java.util.HashMap;
 
-public class Sixteen_Minimum_Window_Substring {
+public class C_16_Minimum_Window_Substring {
     public static void main(String[] args) {
         String s = "ADOBECODEBANC";
         String t = "ABC";
-        SlidingWindowSolution slidingWindowSolution = new SlidingWindowSolution();
-        System.out.println(slidingWindowSolution.minWindow(s, t));
+        SlidingWindowTwoPointer slidingWindowTwoPointer = new SlidingWindowTwoPointer();
+        System.out.println(slidingWindowTwoPointer.minWindow(s, t));
 
+    }
+}
+
+// Prefer this once more time
+class SlidingWindowTwoPointer {
+    public String minWindow(String s, String t) {
+        int n = s.length();
+        int[] mapS = new int[256];
+        int[] mapT = new int[256];
+
+        // Count characters required from t
+        for (char ch : t.toCharArray()) {
+            mapT[ch]++;
+        }
+
+        int left = 0;
+        int right = 0;
+
+        int minLen = Integer.MAX_VALUE;
+        int minStart = 0;
+
+        // Expand the window using right pointer
+        for (; right < n; right++) {
+            mapS[s.charAt(right)]++;
+
+            // Current window contains all required characters
+            while (contains(mapS,mapT)) {
+                 // Update minimum window
+                 if(right - left + 1 <minLen){
+                    minLen = right - left +1;
+                    minStart = left;
+                 }
+
+                 // Remove left character
+                 mapS[s.charAt(left)]--;
+                 left++;
+            }
+        }
+         // No valid window found
+         return minLen == Integer.MIN_VALUE ? "" : s.substring(minStart,minStart+ minLen);
+
+    }
+
+    private boolean contains(int[] mapS, int[] mapT){
+        for(int i=0; i<256; i++){
+            if(mapT[i]>mapS[i]){
+                return false;
+            }
+        }
+        return true;
     }
 }
 
